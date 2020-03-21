@@ -1,0 +1,66 @@
+.ms {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-top: -188px;
+    margin-left: -345px;
+    width: 690px;
+    height: 376px;
+    border: 2px solid #5a5a5a;
+    border-radius: 10px;
+}
+
+.ms .ms__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 15px;
+    height: 40px;
+    line-height: 40px;
+    background: #333;
+    border-bottom: 1px solid #cccccc
+}
+
+.ms .ms__header .ms__header__col {
+    font-size: 20px;
+    color: #fff;
+}
+
+.ms .ms__header .ms__header__col i {
+    padding: 0 3px 0 5px;
+}
+
+.ms .ms__body {
+    height: 265px;
+}
+
+.ms .ms__footer {
+    display: flex;
+    justify-content: space-around;
+}
+
+.ms .ms__footer .ms__footer__icon {
+    margin: 0 1px;
+    width: 25%;
+    height: 70px;
+    line-height: 80px;
+    text-align: center;
+    background: #505050;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.ms .ms__footer .ms__footer__icon:first-child {
+    margin-left: 0;
+}
+
+.ms .ms__footer .ms__footer__icon:last-child {
+    margin-right: 0;
+}
+
+.ms .ms__footer .ms__footer__icon i {
+    font-size: 34px;
+    color: #fff;
+}

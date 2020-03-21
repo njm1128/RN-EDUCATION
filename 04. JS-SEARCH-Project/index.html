@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>SEARCH Project</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" />
+</head>
+<body>
+    <div class="ms">
+        <div class="ms__header">
+            <div class="ms__header__col">6:30</div>
+            <div class="ms__header__col">
+                <i class="fas fa-wifi"></i>
+                <i class="fas fa-battery-full"></i>
+            </div>
+        </div>
+        <div class="ms__body">
+            <h1 class="main_title">ITALIAN PASTA</h1>
+            <div class="search_wrap">
+                <i class="fas fa-search"></i>
+                <input type="text" name="keyword" id="keyword" placeholder="Search" onkeyup="searchMenu(this.value)"/>
+            </div>
+            <div class="list_wrap">
+                <h2 class="list_title">인기메뉴</h2>
+                <div class="menu_list" id="menu-list"></div>
+            </div>
+        </div>
+        <div class="ms__footer">
+            <div class="ms__footer__icon">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="ms__footer__icon active">
+                <i class="fas fa-search"></i>
+            </div>
+            <div class="ms__footer__icon">
+                <i class="fas fa-bookmark"></i>
+            </div>
+            <div class="ms__footer__icon">
+                <i class="fas fa-layer-group"></i>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+    const menu = [
+        {
+            title: '리조또마레',
+            desc: '각종 해산물과 토마토 소스로 맛을 낸 이태리식 쌀 요리',
+            grade: '5',
+            image: "images/menu_01.PNG"
+        },
+        {
+            title: '포르치니 버섯 리조또',
+            desc: '포르치니 버섯향이 강하게 나는 리조또',
+            grade: '3',
+            image: "images/menu_02.PNG"
+        },
+        {
+            title: '뚝배기 해산물 리조또',
+            desc: '신선한 해산물과 바질향이 나는 매콤한 토마토 소스가 어울린 리조또',
+            grade: '4',
+            image: "images/menu_03.PNG"
+        },
+        {
+            title: '리소 술 폴로',
+            desc: '먹음직스럽게 그릴에 구워진 닭이 어울러진 쌀 요리',
+            grade: '4',
+            image: "images/menu_04.PNG"
+        },
+        {
+            title: '먹물 리조또',
+            desc: '오징어 먹물이 들어가 담백함이 일품인 리조또',
+            grade: '3',
+            image: "images/menu_05.PNG"
+        }
+    ];
+
+    const displayItem = (searchMenu) => {
+        const menuList = document.getElementById("menu-list"); 
+        menuList.innerHTML = '';
+
+        searchMenu.map( p => { 
+            const menuItem = document.createElement("div");
+            menuItem.className = "menu_item";
+            
+            const imageArea = document.createElement("div");
+            imageArea.className = "image_area";
+
+            const image = document.createElement("img");
+            image.src = p.image;
+            imageArea.appendChild(image);
+            menuItem.appendChild(imageArea);
+
+            const textArea = document.createElement("div");
+            textArea.className = "text_area";
+
+            const itemTitle = document.createElement("h3");
+            itemTitle.className = "item_title";
+            itemTitle.innerHTML = p.title;
+            textArea.appendChild(itemTitle);
+
+            const itemDesc = document.createElement("p");
+            itemDesc.className = "item_desc";
+            itemDesc.innerHTML = p.desc;
+            textArea.appendChild(itemDesc);
+
+            const itemGrade = document.createElement("p");
+            itemGrade.className = "item_grade";
+
+            for(let i = 0; i < p.grade; i++) {
+                const star = document.createElement("i");
+                star.className = "fas fa-star";
+                itemGrade.appendChild(star);
+            }
+
+            for(let i = p.grade; i < 5; i++) {
+                const star = document.createElement("i");
+                star.className = "far fa-star";
+                itemGrade.appendChild(star);
+            }
+            
+            textArea.appendChild(itemGrade);
+            menuItem.appendChild(textArea);
+            menuList.appendChild(menuItem);
+        });
+    }
+
+    const searchMenu = (keyword) => { 
+        if(window.event.keyCode === 13) {
+            const searchMenu = new Array();
+            menu.map( p => {
+                if(p.title.includes(keyword)) {
+                    searchMenu.push(p);
+                }
+            });
+            displayItem(searchMenu);
+        }
+    }
+
+    function init() {
+        displayItem(menu);
+    }
+
+    init();
+</script>
+</html>

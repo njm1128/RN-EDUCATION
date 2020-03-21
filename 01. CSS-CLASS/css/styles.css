@@ -1,0 +1,21 @@
+.ms {
+    width: 400px;
+    height: 680px;
+    background-color: black;
+    margin: 0 auto;
+    color: white;
+}
+
+.ms .ms__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.ms .ms__footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 150%;
+    font-size: 32px;
+}
