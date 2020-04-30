@@ -39,6 +39,7 @@ class App extends React.Component {
       popular = await movies.getPopular(); // await이 실행되는 동안
       nowPlaying = await movies.getNowPlaying();
       sample = await movies.getSample();
+      console.log(sample);
       // getPopular()를 가져올 때 까지 기다려, 프로그램을 멈춰
       // 만약에 가져오고 있는 중인데 프로그램이 실행된다면 에러가 발생할 수도 있음.
     } catch (error) {
